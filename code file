@@ -1,0 +1,24 @@
+import day_14_supports
+print(day_14_supports.logo)
+import random
+flag = False
+score = 0
+while not flag == True:
+    a = random.choice(day_14_supports.data)
+    b = random.choice(day_14_supports.data)
+    while a == b:
+        b = random.choice(day_14_supports.data)
+    print(f"compare A: {a['name']}, {a['description']} from {a['country']}")
+    print(day_14_supports.vs)
+    print(f"compare B: {b['name']}, {b['description']} from {b['country']}")
+    ans = input("What do you choose, enter A or B ? ").lower()
+    if a['follower_count'] > b['follower_count']:
+        big = 'a'
+    elif a['follower_count'] < b['follower_count']:
+        big = 'b'
+    if ans == big:
+        score += 1
+    if not ans == big:
+        flag = True
+        print(f"You lost, and your score is {score}")
+    
